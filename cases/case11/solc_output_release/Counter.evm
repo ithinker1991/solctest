@@ -1,0 +1,222 @@
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":25:370  contract Counter {... */
+  mstore(0x40, 0x80)
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":58:59  0 */
+  0x0
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":45:59  uint count = 0 */
+  dup1
+  sstore
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":78:122  function Counter() {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x0
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+  pop
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":100:105  owner */
+  0x1
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":100:118  owner = msg.sender */
+  dup1
+  sload
+  not(sub(exp(0x2, 0xa0), 0x1))
+  and
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":108:118  msg.sender */
+  caller
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":100:118  owner = msg.sender */
+  or
+  swap1
+  sstore
+    /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":25:370  contract Counter {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x0
+  codecopy
+  0x0
+  return
+stop
+
+sub_0: assembly {
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":25:370  contract Counter {... */
+      mstore(0x40, 0x80)
+      jumpi(tag_1, lt(calldatasize, 0x4))
+      and(div(calldataload(0x0), 0x100000000000000000000000000000000000000000000000000000000), 0xffffffff)
+      0x41c0e1b5
+      dup2
+      eq
+      tag_2
+      jumpi
+      dup1
+      0xa87d942c
+      eq
+      tag_3
+      jumpi
+      dup1
+      0xd09de08a
+      eq
+      tag_4
+      jumpi
+    tag_1:
+      0x0
+      dup1
+      revert
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":294:367  function kill() {... */
+    tag_2:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_5
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_5:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":294:367  function kill() {... */
+      pop
+      tag_6
+      jump(tag_7)
+    tag_6:
+      stop
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":229:292  function getCount() constant returns (uint) {... */
+    tag_3:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_8
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_8:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":229:292  function getCount() constant returns (uint) {... */
+      pop
+      tag_9
+      jump(tag_10)
+    tag_9:
+      0x40
+      dup1
+      mload
+      swap2
+      dup3
+      mstore
+      mload
+      swap1
+      dup2
+      swap1
+      sub
+      0x20
+      add
+      swap1
+      return
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":124:227  function increment() public {... */
+    tag_4:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_11
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_11:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":124:227  function increment() public {... */
+      pop
+      tag_6
+      jump(tag_13)
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":294:367  function kill() {... */
+    tag_7:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":317:322  owner */
+      sload(0x1)
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":317:336  owner == msg.sender */
+      0xffffffffffffffffffffffffffffffffffffffff
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":317:322  owner */
+      and
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":326:336  msg.sender */
+      caller
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":317:336  owner == msg.sender */
+      eq
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":313:364  if (owner == msg.sender) {... */
+      iszero
+      tag_15
+      jumpi
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":354:359  owner */
+      and(0xffffffffffffffffffffffffffffffffffffffff, sload(0x1))
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":341:360  selfdestruct(owner) */
+      selfdestruct
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":313:364  if (owner == msg.sender) {... */
+    tag_15:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":294:367  function kill() {... */
+      jump	// out
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":229:292  function getCount() constant returns (uint) {... */
+    tag_10:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":267:271  uint */
+      0x0
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":283:288  count */
+      sload
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":229:292  function getCount() constant returns (uint) {... */
+      swap1
+      jump	// out
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":124:227  function increment() public {... */
+    tag_13:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":176:181  owner */
+      sload(0x1)
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":167:169  10 */
+      0xa
+      swap1
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":176:195  owner == msg.sender */
+      0xffffffffffffffffffffffffffffffffffffffff
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":176:181  owner */
+      and
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":185:195  msg.sender */
+      caller
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":176:195  owner == msg.sender */
+      eq
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":172:224  if (owner == msg.sender) {... */
+      iszero
+      tag_18
+      jumpi
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":208:213  count */
+      0x0
+      dup1
+      sload
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":208:220  count + step */
+      dup3
+      add
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":200:220  count = count + step */
+      swap1
+      sstore
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":172:224  if (owner == msg.sender) {... */
+    tag_18:
+        /* "/Users/ashu/pyproj/solctest/cases/case11/test.sol":124:227  function increment() public {... */
+      pop
+      jump	// out
+
+    auxdata: 0xa165627a7a723058208f2c10800f250f1946e1c06f42d583d3ffedcf365ffcfd73647de1380884f48e0029
+}

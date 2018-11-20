@@ -1,0 +1,435 @@
+ContractDefinition "A"
+   Source: "contract A {\n\nuint256 public numberForB;\n\naddress public senderForB;\n\nfunction callTest(address bAddress, uint256 _number) {\n\nbAddress.call(bytes4(sha3(\"setValue(uint256)\")), _number); // B's storage is set, A is not modified\n\n}\n\nfunction callcodeTest(address bAddress, uint256 _number) {\n\nbAddress.callcode(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}\n\nfunction delegatecallTest(address bAddress, uint256 _number) {\n\nbAddress.delegatecall(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}\n\n\n\nfunction callAddTest(address bAddress) {\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\n}\n\n}"
+  VariableDeclaration "numberForB"
+     Type: uint256
+     Source: "uint256 public numberForB"
+    ElementaryTypeName uint256
+       Source: "uint256"
+  VariableDeclaration "senderForB"
+     Type: address
+     Source: "address public senderForB"
+    ElementaryTypeName address
+       Source: "address"
+  FunctionDefinition "callTest" - public
+     Source: "function callTest(address bAddress, uint256 _number) {\n\nbAddress.call(bytes4(sha3(\"setValue(uint256)\")), _number); // B's storage is set, A is not modified\n\n}"
+    ParameterList
+       Source: "(address bAddress, uint256 _number)"
+      VariableDeclaration "bAddress"
+         Type: address
+         Source: "address bAddress"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "_number"
+         Type: uint256
+         Source: "uint256 _number"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nbAddress.call(bytes4(sha3(\"setValue(uint256)\")), _number); // B's storage is set, A is not modified\n\n}"
+      ExpressionStatement
+         Source: "bAddress.call(bytes4(sha3(\"setValue(uint256)\")), _number)"
+        FunctionCall
+           Type: bool
+           Source: "bAddress.call(bytes4(sha3(\"setValue(uint256)\")), _number)"
+          MemberAccess to member call
+             Type: function () payable returns (bool)
+             Source: "bAddress.call"
+            Identifier bAddress
+               Type: address
+               Source: "bAddress"
+          FunctionCall
+             Type: bytes4
+             Source: "bytes4(sha3(\"setValue(uint256)\"))"
+            ElementaryTypeNameExpression bytes4
+               Type: type(bytes4)
+               Source: "bytes4"
+            FunctionCall
+               Type: bytes32
+               Source: "sha3(\"setValue(uint256)\")"
+              Identifier sha3
+                 Type: function () pure returns (bytes32)
+                 Source: "sha3"
+              Literal, token: [no token] value: setValue(uint256)
+                 Type: literal_string "setValue(uint256)"
+                 Source: "\"setValue(uint256)\""
+          Identifier _number
+             Type: uint256
+             Source: "_number"
+  FunctionDefinition "callcodeTest" - public
+     Source: "function callcodeTest(address bAddress, uint256 _number) {\n\nbAddress.callcode(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}"
+    ParameterList
+       Source: "(address bAddress, uint256 _number)"
+      VariableDeclaration "bAddress"
+         Type: address
+         Source: "address bAddress"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "_number"
+         Type: uint256
+         Source: "uint256 _number"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nbAddress.callcode(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}"
+      ExpressionStatement
+         Source: "bAddress.callcode(bytes4(sha3(\"setValue(uint256)\")), _number)"
+        FunctionCall
+           Type: bool
+           Source: "bAddress.callcode(bytes4(sha3(\"setValue(uint256)\")), _number)"
+          MemberAccess to member callcode
+             Type: function () payable returns (bool)
+             Source: "bAddress.callcode"
+            Identifier bAddress
+               Type: address
+               Source: "bAddress"
+          FunctionCall
+             Type: bytes4
+             Source: "bytes4(sha3(\"setValue(uint256)\"))"
+            ElementaryTypeNameExpression bytes4
+               Type: type(bytes4)
+               Source: "bytes4"
+            FunctionCall
+               Type: bytes32
+               Source: "sha3(\"setValue(uint256)\")"
+              Identifier sha3
+                 Type: function () pure returns (bytes32)
+                 Source: "sha3"
+              Literal, token: [no token] value: setValue(uint256)
+                 Type: literal_string "setValue(uint256)"
+                 Source: "\"setValue(uint256)\""
+          Identifier _number
+             Type: uint256
+             Source: "_number"
+  FunctionDefinition "delegatecallTest" - public
+     Source: "function delegatecallTest(address bAddress, uint256 _number) {\n\nbAddress.delegatecall(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}"
+    ParameterList
+       Source: "(address bAddress, uint256 _number)"
+      VariableDeclaration "bAddress"
+         Type: address
+         Source: "address bAddress"
+        ElementaryTypeName address
+           Source: "address"
+      VariableDeclaration "_number"
+         Type: uint256
+         Source: "uint256 _number"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nbAddress.delegatecall(bytes4(sha3(\"setValue(uint256)\")), _number); // A's storage is set, B is not modified\n\n}"
+      ExpressionStatement
+         Source: "bAddress.delegatecall(bytes4(sha3(\"setValue(uint256)\")), _number)"
+        FunctionCall
+           Type: bool
+           Source: "bAddress.delegatecall(bytes4(sha3(\"setValue(uint256)\")), _number)"
+          MemberAccess to member delegatecall
+             Type: function () returns (bool)
+             Source: "bAddress.delegatecall"
+            Identifier bAddress
+               Type: address
+               Source: "bAddress"
+          FunctionCall
+             Type: bytes4
+             Source: "bytes4(sha3(\"setValue(uint256)\"))"
+            ElementaryTypeNameExpression bytes4
+               Type: type(bytes4)
+               Source: "bytes4"
+            FunctionCall
+               Type: bytes32
+               Source: "sha3(\"setValue(uint256)\")"
+              Identifier sha3
+                 Type: function () pure returns (bytes32)
+                 Source: "sha3"
+              Literal, token: [no token] value: setValue(uint256)
+                 Type: literal_string "setValue(uint256)"
+                 Source: "\"setValue(uint256)\""
+          Identifier _number
+             Type: uint256
+             Source: "_number"
+  FunctionDefinition "callAddTest" - public
+     Source: "function callAddTest(address bAddress) {\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\n}"
+    ParameterList
+       Source: "(address bAddress)"
+      VariableDeclaration "bAddress"
+         Type: address
+         Source: "address bAddress"
+        ElementaryTypeName address
+           Source: "address"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\nbAddress.call(bytes4(sha3(\"add()\"))); // B's storage is set, A is not modified\n\n}"
+      ExpressionStatement
+         Source: "bAddress.call(bytes4(sha3(\"add()\")))"
+        FunctionCall
+           Type: bool
+           Source: "bAddress.call(bytes4(sha3(\"add()\")))"
+          MemberAccess to member call
+             Type: function () payable returns (bool)
+             Source: "bAddress.call"
+            Identifier bAddress
+               Type: address
+               Source: "bAddress"
+          FunctionCall
+             Type: bytes4
+             Source: "bytes4(sha3(\"add()\"))"
+            ElementaryTypeNameExpression bytes4
+               Type: type(bytes4)
+               Source: "bytes4"
+            FunctionCall
+               Type: bytes32
+               Source: "sha3(\"add()\")"
+              Identifier sha3
+                 Type: function () pure returns (bytes32)
+                 Source: "sha3"
+              Literal, token: [no token] value: add()
+                 Type: literal_string "add()"
+                 Source: "\"add()\""
+      ExpressionStatement
+         Source: "bAddress.call(bytes4(sha3(\"add()\")))"
+        FunctionCall
+           Type: bool
+           Source: "bAddress.call(bytes4(sha3(\"add()\")))"
+          MemberAccess to member call
+             Type: function () payable returns (bool)
+             Source: "bAddress.call"
+            Identifier bAddress
+               Type: address
+               Source: "bAddress"
+          FunctionCall
+             Type: bytes4
+             Source: "bytes4(sha3(\"add()\"))"
+            ElementaryTypeNameExpression bytes4
+               Type: type(bytes4)
+               Source: "bytes4"
+            FunctionCall
+               Type: bytes32
+               Source: "sha3(\"add()\")"
+              Identifier sha3
+                 Type: function () pure returns (bytes32)
+                 Source: "sha3"
+              Literal, token: [no token] value: add()
+                 Type: literal_string "add()"
+                 Source: "\"add()\""
+ContractDefinition "B"
+   Source: "contract B {\n\nuint256 public numberForB;\n\naddress public senderForB;\n\naddress public addr11;\n\nmapping(uint256=>address) public addr1;\n\nmapping(uint256=>address) public addr2;\n\nfunction setValue(uint256 _number) {\n\nnumberForB = _number;\n\nsenderForB = msg.sender;\n\n// senderForB is A if invoked by A's callTest. B's storage will be updated\n\n// senderForB is A if invoked by A's callcodeTest. None of B's storage is updated\n\n// senderForB is OWNER if invoked by A's delegatecallTest. None of B's storage is updated\n\n}\n\n\n\nfunction add() public{\n\nnumberForB=numberForB+1;\n\nC c1 = new C();\n\naddr1[numberForB]=c1.getAddress();\n\naddr11 = c1.getAddress();\n\nC c2 = new C();\n\naddr2[numberForB] = c2.getAddress();\n\n}\n\n}"
+  VariableDeclaration "numberForB"
+     Type: uint256
+     Source: "uint256 public numberForB"
+    ElementaryTypeName uint256
+       Source: "uint256"
+  VariableDeclaration "senderForB"
+     Type: address
+     Source: "address public senderForB"
+    ElementaryTypeName address
+       Source: "address"
+  VariableDeclaration "addr11"
+     Type: address
+     Source: "address public addr11"
+    ElementaryTypeName address
+       Source: "address"
+  VariableDeclaration "addr1"
+     Type: mapping(uint256 => address)
+     Source: "mapping(uint256=>address) public addr1"
+    Mapping
+       Source: "mapping(uint256=>address)"
+      ElementaryTypeName uint256
+         Source: "uint256"
+      ElementaryTypeName address
+         Source: "address"
+  VariableDeclaration "addr2"
+     Type: mapping(uint256 => address)
+     Source: "mapping(uint256=>address) public addr2"
+    Mapping
+       Source: "mapping(uint256=>address)"
+      ElementaryTypeName uint256
+         Source: "uint256"
+      ElementaryTypeName address
+         Source: "address"
+  FunctionDefinition "setValue" - public
+     Source: "function setValue(uint256 _number) {\n\nnumberForB = _number;\n\nsenderForB = msg.sender;\n\n// senderForB is A if invoked by A's callTest. B's storage will be updated\n\n// senderForB is A if invoked by A's callcodeTest. None of B's storage is updated\n\n// senderForB is OWNER if invoked by A's delegatecallTest. None of B's storage is updated\n\n}"
+    ParameterList
+       Source: "(uint256 _number)"
+      VariableDeclaration "_number"
+         Type: uint256
+         Source: "uint256 _number"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nnumberForB = _number;\n\nsenderForB = msg.sender;\n\n// senderForB is A if invoked by A's callTest. B's storage will be updated\n\n// senderForB is A if invoked by A's callcodeTest. None of B's storage is updated\n\n// senderForB is OWNER if invoked by A's delegatecallTest. None of B's storage is updated\n\n}"
+      ExpressionStatement
+         Source: "numberForB = _number"
+        Assignment using operator =
+           Type: uint256
+           Source: "numberForB = _number"
+          Identifier numberForB
+             Type: uint256
+             Source: "numberForB"
+          Identifier _number
+             Type: uint256
+             Source: "_number"
+      ExpressionStatement
+         Source: "senderForB = msg.sender"
+        Assignment using operator =
+           Type: address
+           Source: "senderForB = msg.sender"
+          Identifier senderForB
+             Type: address
+             Source: "senderForB"
+          MemberAccess to member sender
+             Type: address
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+  FunctionDefinition "add" - public
+     Source: "function add() public{\n\nnumberForB=numberForB+1;\n\nC c1 = new C();\n\naddr1[numberForB]=c1.getAddress();\n\naddr11 = c1.getAddress();\n\nC c2 = new C();\n\naddr2[numberForB] = c2.getAddress();\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nnumberForB=numberForB+1;\n\nC c1 = new C();\n\naddr1[numberForB]=c1.getAddress();\n\naddr11 = c1.getAddress();\n\nC c2 = new C();\n\naddr2[numberForB] = c2.getAddress();\n\n}"
+      ExpressionStatement
+         Source: "numberForB=numberForB+1"
+        Assignment using operator =
+           Type: uint256
+           Source: "numberForB=numberForB+1"
+          Identifier numberForB
+             Type: uint256
+             Source: "numberForB"
+          BinaryOperation using operator +
+             Type: uint256
+             Source: "numberForB+1"
+            Identifier numberForB
+               Type: uint256
+               Source: "numberForB"
+            Literal, token: [no token] value: 1
+               Type: int_const 1
+               Source: "1"
+      VariableDeclarationStatement
+         Source: "C c1 = new C()"
+        VariableDeclaration "c1"
+           Type: contract C
+           Source: "C c1"
+          UserDefinedTypeName "C"
+             Source: "C"
+        FunctionCall
+           Type: contract C
+           Source: "new C()"
+          NewExpression
+             Type: function () returns (contract C)
+             Source: "new C"
+            UserDefinedTypeName "C"
+               Source: "C"
+      ExpressionStatement
+         Source: "addr1[numberForB]=c1.getAddress()"
+        Assignment using operator =
+           Type: address
+           Source: "addr1[numberForB]=c1.getAddress()"
+          IndexAccess
+             Type: address
+             Source: "addr1[numberForB]"
+            Identifier addr1
+               Type: mapping(uint256 => address)
+               Source: "addr1"
+            Identifier numberForB
+               Type: uint256
+               Source: "numberForB"
+          FunctionCall
+             Type: address
+             Source: "c1.getAddress()"
+            MemberAccess to member getAddress
+               Type: function () view external returns (address)
+               Source: "c1.getAddress"
+              Identifier c1
+                 Type: contract C
+                 Source: "c1"
+      ExpressionStatement
+         Source: "addr11 = c1.getAddress()"
+        Assignment using operator =
+           Type: address
+           Source: "addr11 = c1.getAddress()"
+          Identifier addr11
+             Type: address
+             Source: "addr11"
+          FunctionCall
+             Type: address
+             Source: "c1.getAddress()"
+            MemberAccess to member getAddress
+               Type: function () view external returns (address)
+               Source: "c1.getAddress"
+              Identifier c1
+                 Type: contract C
+                 Source: "c1"
+      VariableDeclarationStatement
+         Source: "C c2 = new C()"
+        VariableDeclaration "c2"
+           Type: contract C
+           Source: "C c2"
+          UserDefinedTypeName "C"
+             Source: "C"
+        FunctionCall
+           Type: contract C
+           Source: "new C()"
+          NewExpression
+             Type: function () returns (contract C)
+             Source: "new C"
+            UserDefinedTypeName "C"
+               Source: "C"
+      ExpressionStatement
+         Source: "addr2[numberForB] = c2.getAddress()"
+        Assignment using operator =
+           Type: address
+           Source: "addr2[numberForB] = c2.getAddress()"
+          IndexAccess
+             Type: address
+             Source: "addr2[numberForB]"
+            Identifier addr2
+               Type: mapping(uint256 => address)
+               Source: "addr2"
+            Identifier numberForB
+               Type: uint256
+               Source: "numberForB"
+          FunctionCall
+             Type: address
+             Source: "c2.getAddress()"
+            MemberAccess to member getAddress
+               Type: function () view external returns (address)
+               Source: "c2.getAddress"
+              Identifier c2
+                 Type: contract C
+                 Source: "c2"
+ContractDefinition "C"
+   Source: "contract C {\n\nfunction getAddress() public view returns(address){\n\nreturn address(this);\n\n}\n\n}"
+  FunctionDefinition "getAddress" - public - const
+     Source: "function getAddress() public view returns(address){\n\nreturn address(this);\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(address)"
+      VariableDeclaration ""
+         Type: address
+         Source: "address"
+        ElementaryTypeName address
+           Source: "address"
+    Block
+       Source: "{\n\nreturn address(this);\n\n}"
+      Return
+         Source: "return address(this)"
+        FunctionCall
+           Type: address
+           Source: "address(this)"
+          ElementaryTypeNameExpression address
+             Type: type(address)
+             Source: "address"
+          Identifier this
+             Type: contract C
+             Source: "this"

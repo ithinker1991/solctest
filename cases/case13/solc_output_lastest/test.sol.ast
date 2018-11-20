@@ -1,0 +1,176 @@
+PragmaDirective
+   Source: "pragma solidity ^0.4.0;"
+ContractDefinition "ExecuteFallback"
+   Source: "contract ExecuteFallback{\n\n\n\n  //\u56de\u9000\u4e8b\u4ef6\uff0c\u4f1a\u628a\u8c03\u7528\u7684\u6570\u636e\u6253\u5370\u51fa\u6765\n\n  event FallbackCalled(bytes data);\n\n  //fallback\u51fd\u6570\uff0c\u6ce8\u610f\u662f\u6ca1\u6709\u540d\u5b57\u7684\uff0c\u6ca1\u6709\u53c2\u6570\uff0c\u6ca1\u6709\u8fd4\u56de\u503c\u7684\n\n  function(){\n\n    FallbackCalled(msg.data);\n\n  }\n\n\n\n  //\u8c03\u7528\u5df2\u5b58\u5728\u51fd\u6570\u7684\u4e8b\u4ef6\uff0c\u4f1a\u628a\u8c03\u7528\u7684\u539f\u59cb\u6570\u636e\uff0c\u8bf7\u6c42\u53c2\u6570\u6253\u5370\u51fa\u6765\n\n  event ExistFuncCalled(bytes data, uint256 para);\n\n  //\u4e00\u4e2a\u5b58\u5728\u7684\u51fd\u6570\n\n  function existFunc(uint256 para){\n\n    ExistFuncCalled(msg.data, para);\n\n  }\n\n\n\n  // \u6a21\u62df\u4ece\u5916\u90e8\u5bf9\u4e00\u4e2a\u5b58\u5728\u7684\u51fd\u6570\u53d1\u8d77\u4e00\u4e2a\u8c03\u7528\uff0c\u5c06\u76f4\u63a5\u8c03\u7528\u51fd\u6570\n\n  function callExistFunc(){\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"existFunc(uint256)\"));\n\n    this.call(funcIdentifier, uint256(1));\n\n  }\n\n\n\n  //\u6a21\u62df\u4ece\u5916\u90e8\u5bf9\u4e00\u4e2a\u4e0d\u5b58\u5728\u7684\u51fd\u6570\u53d1\u8d77\u4e00\u4e2a\u8c03\u7528\uff0c\u7531\u4e8e\u5339\u914d\u4e0d\u5230\u51fd\u6570\uff0c\u5c06\u8c03\u7528\u56de\u9000\u51fd\u6570\n\n  function callNonExistFunc(){\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"functionNotExist()\"));\n\n    this.call(funcIdentifier);\n\n  }\n\n}"
+  EventDefinition "FallbackCalled"
+     Source: "event FallbackCalled(bytes data);"
+    ParameterList
+       Source: "(bytes data)"
+      VariableDeclaration "data"
+         Type: bytes memory
+         Source: "bytes data"
+        ElementaryTypeName bytes
+           Source: "bytes"
+  FunctionDefinition "" - public
+     Source: "function(){\n\n    FallbackCalled(msg.data);\n\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\n    FallbackCalled(msg.data);\n\n  }"
+      ExpressionStatement
+         Source: "FallbackCalled(msg.data)"
+        FunctionCall
+           Type: tuple()
+           Source: "FallbackCalled(msg.data)"
+          Identifier FallbackCalled
+             Type: function (bytes memory)
+             Source: "FallbackCalled"
+          MemberAccess to member data
+             Type: bytes calldata
+             Source: "msg.data"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+  EventDefinition "ExistFuncCalled"
+     Source: "event ExistFuncCalled(bytes data, uint256 para);"
+    ParameterList
+       Source: "(bytes data, uint256 para)"
+      VariableDeclaration "data"
+         Type: bytes memory
+         Source: "bytes data"
+        ElementaryTypeName bytes
+           Source: "bytes"
+      VariableDeclaration "para"
+         Type: uint256
+         Source: "uint256 para"
+        ElementaryTypeName uint256
+           Source: "uint256"
+  FunctionDefinition "existFunc" - public
+     Source: "function existFunc(uint256 para){\n\n    ExistFuncCalled(msg.data, para);\n\n  }"
+    ParameterList
+       Source: "(uint256 para)"
+      VariableDeclaration "para"
+         Type: uint256
+         Source: "uint256 para"
+        ElementaryTypeName uint256
+           Source: "uint256"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\n    ExistFuncCalled(msg.data, para);\n\n  }"
+      ExpressionStatement
+         Source: "ExistFuncCalled(msg.data, para)"
+        FunctionCall
+           Type: tuple()
+           Source: "ExistFuncCalled(msg.data, para)"
+          Identifier ExistFuncCalled
+             Type: function (bytes memory,uint256)
+             Source: "ExistFuncCalled"
+          MemberAccess to member data
+             Type: bytes calldata
+             Source: "msg.data"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+          Identifier para
+             Type: uint256
+             Source: "para"
+  FunctionDefinition "callExistFunc" - public
+     Source: "function callExistFunc(){\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"existFunc(uint256)\"));\n\n    this.call(funcIdentifier, uint256(1));\n\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"existFunc(uint256)\"));\n\n    this.call(funcIdentifier, uint256(1));\n\n  }"
+      VariableDeclarationStatement
+         Source: "bytes4 funcIdentifier = bytes4(keccak256(\"existFunc(uint256)\"))"
+        VariableDeclaration "funcIdentifier"
+           Type: bytes4
+           Source: "bytes4 funcIdentifier"
+          ElementaryTypeName bytes4
+             Source: "bytes4"
+        FunctionCall
+           Type: bytes4
+           Source: "bytes4(keccak256(\"existFunc(uint256)\"))"
+          ElementaryTypeNameExpression bytes4
+             Type: type(bytes4)
+             Source: "bytes4"
+          FunctionCall
+             Type: bytes32
+             Source: "keccak256(\"existFunc(uint256)\")"
+            Identifier keccak256
+               Type: function () pure returns (bytes32)
+               Source: "keccak256"
+            Literal, token: [no token] value: existFunc(uint256)
+               Type: literal_string "existFunc(uint256)"
+               Source: "\"existFunc(uint256)\""
+      ExpressionStatement
+         Source: "this.call(funcIdentifier, uint256(1))"
+        FunctionCall
+           Type: bool
+           Source: "this.call(funcIdentifier, uint256(1))"
+          MemberAccess to member call
+             Type: function () payable returns (bool)
+             Source: "this.call"
+            Identifier this
+               Type: contract ExecuteFallback
+               Source: "this"
+          Identifier funcIdentifier
+             Type: bytes4
+             Source: "funcIdentifier"
+          FunctionCall
+             Type: uint256
+             Source: "uint256(1)"
+            ElementaryTypeNameExpression uint256
+               Type: type(uint256)
+               Source: "uint256"
+            Literal, token: [no token] value: 1
+               Type: int_const 1
+               Source: "1"
+  FunctionDefinition "callNonExistFunc" - public
+     Source: "function callNonExistFunc(){\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"functionNotExist()\"));\n\n    this.call(funcIdentifier);\n\n  }"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\n    bytes4 funcIdentifier = bytes4(keccak256(\"functionNotExist()\"));\n\n    this.call(funcIdentifier);\n\n  }"
+      VariableDeclarationStatement
+         Source: "bytes4 funcIdentifier = bytes4(keccak256(\"functionNotExist()\"))"
+        VariableDeclaration "funcIdentifier"
+           Type: bytes4
+           Source: "bytes4 funcIdentifier"
+          ElementaryTypeName bytes4
+             Source: "bytes4"
+        FunctionCall
+           Type: bytes4
+           Source: "bytes4(keccak256(\"functionNotExist()\"))"
+          ElementaryTypeNameExpression bytes4
+             Type: type(bytes4)
+             Source: "bytes4"
+          FunctionCall
+             Type: bytes32
+             Source: "keccak256(\"functionNotExist()\")"
+            Identifier keccak256
+               Type: function () pure returns (bytes32)
+               Source: "keccak256"
+            Literal, token: [no token] value: functionNotExist()
+               Type: literal_string "functionNotExist()"
+               Source: "\"functionNotExist()\""
+      ExpressionStatement
+         Source: "this.call(funcIdentifier)"
+        FunctionCall
+           Type: bool
+           Source: "this.call(funcIdentifier)"
+          MemberAccess to member call
+             Type: function () payable returns (bool)
+             Source: "this.call"
+            Identifier this
+               Type: contract ExecuteFallback
+               Source: "this"
+          Identifier funcIdentifier
+             Type: bytes4
+             Source: "funcIdentifier"

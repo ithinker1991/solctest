@@ -1,0 +1,143 @@
+PragmaDirective
+   Source: "pragma solidity ^0.4.4;"
+ContractDefinition "Counter"
+   Source: "contract Counter {\n\nuint count = 0;\n\naddress owner;\n\nfunction Counter() {\n\nowner = msg.sender;\n\n}\n\nfunction increment() public {\n\nuint step = 10;\n\nif (owner == msg.sender) {\n\ncount = count + step;\n\n}\n\n}\n\nfunction getCount() constant returns (uint) {\n\nreturn count;\n\n}\n\nfunction kill() {\n\nif (owner == msg.sender) {\n\nselfdestruct(owner);\n\n}\n\n}\n\n}"
+  VariableDeclaration "count"
+     Type: uint256
+     Source: "uint count = 0"
+    ElementaryTypeName uint
+       Source: "uint"
+    Literal, token: [no token] value: 0
+       Type: int_const 0
+       Source: "0"
+  VariableDeclaration "owner"
+     Type: address
+     Source: "address owner"
+    ElementaryTypeName address
+       Source: "address"
+  FunctionDefinition "Counter" - public
+     Source: "function Counter() {\n\nowner = msg.sender;\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nowner = msg.sender;\n\n}"
+      ExpressionStatement
+         Source: "owner = msg.sender"
+        Assignment using operator =
+           Type: address
+           Source: "owner = msg.sender"
+          Identifier owner
+             Type: address
+             Source: "owner"
+          MemberAccess to member sender
+             Type: address
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+  FunctionDefinition "increment" - public
+     Source: "function increment() public {\n\nuint step = 10;\n\nif (owner == msg.sender) {\n\ncount = count + step;\n\n}\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nuint step = 10;\n\nif (owner == msg.sender) {\n\ncount = count + step;\n\n}\n\n}"
+      VariableDeclarationStatement
+         Source: "uint step = 10"
+        VariableDeclaration "step"
+           Type: uint256
+           Source: "uint step"
+          ElementaryTypeName uint
+             Source: "uint"
+        Literal, token: [no token] value: 10
+           Type: int_const 10
+           Source: "10"
+      IfStatement
+         Source: "if (owner == msg.sender) {\n\ncount = count + step;\n\n}"
+        BinaryOperation using operator ==
+           Type: bool
+           Source: "owner == msg.sender"
+          Identifier owner
+             Type: address
+             Source: "owner"
+          MemberAccess to member sender
+             Type: address
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+        Block
+           Source: "{\n\ncount = count + step;\n\n}"
+          ExpressionStatement
+             Source: "count = count + step"
+            Assignment using operator =
+               Type: uint256
+               Source: "count = count + step"
+              Identifier count
+                 Type: uint256
+                 Source: "count"
+              BinaryOperation using operator +
+                 Type: uint256
+                 Source: "count + step"
+                Identifier count
+                   Type: uint256
+                   Source: "count"
+                Identifier step
+                   Type: uint256
+                   Source: "step"
+  FunctionDefinition "getCount" - public - const
+     Source: "function getCount() constant returns (uint) {\n\nreturn count;\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: "(uint)"
+      VariableDeclaration ""
+         Type: uint256
+         Source: "uint"
+        ElementaryTypeName uint
+           Source: "uint"
+    Block
+       Source: "{\n\nreturn count;\n\n}"
+      Return
+         Source: "return count"
+        Identifier count
+           Type: uint256
+           Source: "count"
+  FunctionDefinition "kill" - public
+     Source: "function kill() {\n\nif (owner == msg.sender) {\n\nselfdestruct(owner);\n\n}\n\n}"
+    ParameterList
+       Source: "()"
+    ParameterList
+       Source: ""
+    Block
+       Source: "{\n\nif (owner == msg.sender) {\n\nselfdestruct(owner);\n\n}\n\n}"
+      IfStatement
+         Source: "if (owner == msg.sender) {\n\nselfdestruct(owner);\n\n}"
+        BinaryOperation using operator ==
+           Type: bool
+           Source: "owner == msg.sender"
+          Identifier owner
+             Type: address
+             Source: "owner"
+          MemberAccess to member sender
+             Type: address
+             Source: "msg.sender"
+            Identifier msg
+               Type: msg
+               Source: "msg"
+        Block
+           Source: "{\n\nselfdestruct(owner);\n\n}"
+          ExpressionStatement
+             Source: "selfdestruct(owner)"
+            FunctionCall
+               Type: tuple()
+               Source: "selfdestruct(owner)"
+              Identifier selfdestruct
+                 Type: function (address)
+                 Source: "selfdestruct"
+              Identifier owner
+                 Type: address
+                 Source: "owner"

@@ -1,0 +1,8 @@
+contract:ExecuteFallback
+deploy script:
+tirgger script:
+triggercontract Txxxxxxxxxxx existFunc(uint256) uint256 false 1000000000 0 0 #
+triggercontract Txxxxxxxxxxx callNonExistFunc() # false 1000000000 0 0 #
+triggercontract Txxxxxxxxxxx callExistFunc() # false 1000000000 0 0 #
+
+

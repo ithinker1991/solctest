@@ -1,0 +1,9 @@
+contract:Counter
+deploy script:
+deploycontract Counter_release [{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"increment","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}] 60806040526000805534801561001457600080fd5b5060018054600160a060020a0319163317905561014c806100366000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166341c0e1b5811461005b578063a87d942c14610072578063d09de08a14610099575b600080fd5b34801561006757600080fd5b506100706100ae565b005b34801561007e57600080fd5b506100876100eb565b60408051918252519081900360200190f35b3480156100a557600080fd5b506100706100f1565b60015473ffffffffffffffffffffffffffffffffffffffff163314156100e95760015473ffffffffffffffffffffffffffffffffffffffff16ff5b565b60005490565b600154600a9073ffffffffffffffffffffffffffffffffffffffff1633141561011d5760008054820190555b505600a165627a7a723058208f2c10800f250f1946e1c06f42d583d3ffedcf365ffcfd73647de1380884f48e0029 # # false 1000000000 100 10000000 0 0 #
+tirgger script:
+triggercontract Txxxxxxxxxxx kill() # false 1000000000 0 0 #
+triggercontract Txxxxxxxxxxx getCount() # false 1000000000 0 0 #
+triggercontract Txxxxxxxxxxx increment() # false 1000000000 0 0 #
+
+

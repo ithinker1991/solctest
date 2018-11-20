@@ -1,0 +1,382 @@
+    /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":27:1032  contract ExecuteFallback{... */
+  mstore(0x40, 0x80)
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x0
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":27:1032  contract ExecuteFallback{... */
+  pop
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x0
+  codecopy
+  0x0
+  return
+stop
+
+sub_0: assembly {
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":27:1032  contract ExecuteFallback{... */
+      mstore(0x40, 0x80)
+      jumpi(tag_1, lt(calldatasize, 0x4))
+      and(div(calldataload(0x0), exp(0x2, 0xe0)), 0xffffffff)
+      0x42a78883
+      dup2
+      eq
+      tag_2
+      jumpi
+      dup1
+      0x66b0bae0
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x7c06885a
+      eq
+      tag_4
+      jumpi
+    tag_1:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_5
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_5:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":27:1032  contract ExecuteFallback{... */
+      pop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":249:273  FallbackCalled(msg.data) */
+      0x17c1956f6e992470102c5fc953bf560fda31fabee8737cf8e77bdde00eb5698d
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":264:272  msg.data */
+      0x0
+      calldatasize
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":249:273  FallbackCalled(msg.data) */
+      mload(0x40)
+      dup1
+      dup1
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      dup5
+      dup5
+      dup3
+      dup2
+      dup2
+      mstore
+      0x20
+      add
+      swap3
+      pop
+      dup1
+      dup3
+      dup5
+      calldatacopy
+      mload(0x40)
+      swap3
+      add
+      dup3
+      swap1
+      sub
+      swap6
+      pop
+      swap1
+      swap4
+      pop
+      pop
+      pop
+      pop
+      log1
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":27:1032  contract ExecuteFallback{... */
+      stop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":457:533  function existFunc(uint256 para){... */
+    tag_2:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_8
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_8:
+      pop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":457:533  function existFunc(uint256 para){... */
+      tag_9
+      calldataload(0x4)
+      jump(tag_10)
+    tag_9:
+      stop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":894:1029  function callNonExistFunc(){... */
+    tag_3:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_11
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_11:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":894:1029  function callNonExistFunc(){... */
+      pop
+      tag_9
+      jump(tag_13)
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":627:771  function callExistFunc(){... */
+    tag_4:
+      callvalue
+        /* "--CODEGEN--":8:17   */
+      dup1
+        /* "--CODEGEN--":5:7   */
+      iszero
+      tag_14
+      jumpi
+        /* "--CODEGEN--":30:31   */
+      0x0
+        /* "--CODEGEN--":27:28   */
+      dup1
+        /* "--CODEGEN--":20:32   */
+      revert
+        /* "--CODEGEN--":5:7   */
+    tag_14:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":627:771  function callExistFunc(){... */
+      pop
+      tag_9
+      jump(tag_16)
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":457:533  function existFunc(uint256 para){... */
+    tag_10:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":496:527  ExistFuncCalled(msg.data, para) */
+      0xb776d49293459725ca7d6a5abc60e389d2f3d067d4f028ba9cd790f696599846
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":512:520  msg.data */
+      0x0
+      calldatasize
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":522:526  para */
+      dup4
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":496:527  ExistFuncCalled(msg.data, para) */
+      mload(0x40)
+      dup1
+      dup1
+      0x20
+      add
+      dup4
+      dup2
+      mstore
+      0x20
+      add
+      dup3
+      dup2
+      sub
+      dup3
+      mstore
+      dup6
+      dup6
+      dup3
+      dup2
+      dup2
+      mstore
+      0x20
+      add
+      swap3
+      pop
+      dup1
+      dup3
+      dup5
+      calldatacopy
+      mload(0x40)
+      swap3
+      add
+      dup3
+      swap1
+      sub
+      swap7
+      pop
+      swap1
+      swap5
+      pop
+      pop
+      pop
+      pop
+      pop
+      log1
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":457:533  function existFunc(uint256 para){... */
+      pop
+      jump	// out
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":894:1029  function callNonExistFunc(){... */
+    tag_13:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":928:949  bytes4 funcIdentifier */
+      0x0
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":959:990  keccak256("functionNotExist()") */
+      mload(0x40)
+      dup1
+      dup1
+      0x66756e6374696f6e4e6f74457869737428290000000000000000000000000000
+      dup2
+      mstore
+      pop
+      0x12
+      add
+      swap1
+      pop
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      keccak256
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":928:991  bytes4 funcIdentifier = bytes4(keccak256("functionNotExist()")) */
+      swap1
+      pop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":998:1002  this */
+      address
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":998:1007  this.call */
+      0xffffffffffffffffffffffffffffffffffffffff
+      and
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":1008:1022  funcIdentifier */
+      dup2
+      exp(0x2, 0xe0)
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":998:1023  this.call(funcIdentifier) */
+      swap1
+      div
+      mload(0x40)
+      dup2
+      0xffffffff
+      and
+      exp(0x2, 0xe0)
+      mul
+      dup2
+      mstore
+      0x4
+      add
+      0x0
+      mload(0x40)
+      dup1
+      dup4
+      sub
+      dup2
+      0x0
+      dup8
+      gas
+      call
+      pop
+      pop
+      pop
+      pop
+      pop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":894:1029  function callNonExistFunc(){... */
+      jump	// out
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":627:771  function callExistFunc(){... */
+    tag_16:
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":689:720  keccak256("existFunc(uint256)") */
+      0x40
+      dup1
+      mload
+      0x657869737446756e632875696e74323536290000000000000000000000000000
+      dup2
+      mstore
+      dup2
+      mload
+      swap1
+      dup2
+      swap1
+      sub
+      0x12
+      add
+      dup2
+      keccak256
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:765  this.call(funcIdentifier, uint256(1)) */
+      0xffffffff
+      exp(0x2, 0xe0)
+      dup1
+      dup4
+      div
+      swap2
+      dup3
+      and
+      mul
+      dup4
+      mstore
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":762:763  1 */
+      0x1
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:765  this.call(funcIdentifier, uint256(1)) */
+      0x4
+      dup5
+      add
+      mstore
+      swap3
+      mload
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":689:720  keccak256("existFunc(uint256)") */
+      swap1
+      swap3
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:732  this */
+      address
+      swap3
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:765  this.call(funcIdentifier, uint256(1)) */
+      swap1
+      swap2
+      0x24
+      dup1
+      dup4
+      add
+      swap3
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":658:679  bytes4 funcIdentifier */
+      0x0
+      swap3
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:765  this.call(funcIdentifier, uint256(1)) */
+      swap2
+      swap1
+      dup3
+      swap1
+      sub
+      add
+      dup2
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":658:679  bytes4 funcIdentifier */
+      dup4
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:732  this */
+      dup8
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":728:765  this.call(funcIdentifier, uint256(1)) */
+      gas
+      call
+      pop
+      pop
+      pop
+      pop
+      pop
+        /* "/Users/ashu/pyproj/solctest/cases/case13/test.sol":627:771  function callExistFunc(){... */
+      jump	// out
+
+    auxdata: 0xa165627a7a7230582053b23dcf7aced79a55f6818f9881ce58b05861548cbbdd58f7c6120702505cdd0029
+}

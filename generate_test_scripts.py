@@ -94,11 +94,11 @@ def generate_contract_scrpits(case_path, contract, version, script_file):
 
 def main():
     # bin_path, solc_path = sys.argv[1], sys.argv[2]
-    bin_path1 = "/Users/ashu/pyproj/solctest/solc_bin/solc-lastest"
-    bin_path2 = "/Users/ashu/pyproj/solctest/solc_bin/solc-release"
+    bin_path1 = "./solc_bin/solc-lastest"
+    bin_path2 = "./solc_bin/solc-release"
 
 
-    casees_path = "/Users/ashu/pyproj/solctest/cases"
+    casees_path = "./solctest/cases"
     for f in os.listdir(casees_path):
         if f.startswith("case"):
             solc_path = casees_path + "/" + f
